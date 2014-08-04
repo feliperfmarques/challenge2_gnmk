@@ -1,0 +1,37 @@
+{% extends 'painel/base.html' %}
+
+{% block content %}
+
+{% load i18n %}
+
+
+<form method="post" action="{% url 'painel.views.references' %}">
+{% csrf_token %}
+
+        <p style="color: darkgreen;">{{ success }}</p>
+
+        <input name="genes" value="GENES" style="background-color: lightsteelblue; border: none; font-size: 16px; color: black; width: 100px;" disabled>
+        <input name="references" value="REFERÊNCIA" style="background-color: lightsteelblue; border: none; font-size: 16px; color: black;" disabled>
+
+
+        <p>
+
+             <select name="old" style="width: 100px; height: 30px;">
+
+                {% for list in genes_list %}
+
+                        <option value="{{ list.refer }}">{{ list.gene }}</option>
+
+                {% endfor %}
+
+            </select>
+
+            <input name="new">
+            <button type="submit">Atualizar Referência</button>
+
+    </p>
+
+</form>
+
+{% endblock %}
+

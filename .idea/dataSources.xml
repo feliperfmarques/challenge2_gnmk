@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="1285810455">
+    <data-source source="LOCAL" name="Django default" uuid="77af5cd7-a8e5-42e6-93cf-dd9ebc054bf3">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/challenge2_gnmk.db</jdbc-url>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+

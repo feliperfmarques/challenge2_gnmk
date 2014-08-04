@@ -1,0 +1,39 @@
+{% extends 'painel/base.html' %}
+
+{% block content %}
+
+{% load i18n %}
+
+
+<form method="post" action="{% url 'painel.views.select' %}">
+{% csrf_token %}
+
+    <p>PAINÉIS:</p>
+
+    {% for panel in panels_list %}
+
+        <input type="checkbox" onclick="panels(this)" name="panel" value="{{ panel.name }}_{{ panel.genes }}"> {{ panel.name }}
+
+    {% endfor %}
+
+    <p>GENES:</p>
+
+
+    {% for list in genes_list %}
+
+        <input type="checkbox" name="genes" value="{{ list.gene }}_{{ list.refer }}">{{ list.gene }}
+
+    {% endfor %}
+
+    <p>
+        <button type="reset">Limpar Seleção</button>
+        <button type="submit">Criar Bad File</button>
+    </p>
+
+</form>
+
+{% load staticfiles %}
+<script src="{% static "painel/js/scripts.js" %}" type="text/javascript"></script>
+
+{% endblock %}
+

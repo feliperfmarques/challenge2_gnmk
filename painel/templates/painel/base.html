@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+
+    <meta charset="UTF-8">
+    <title>Painel de Genes - GENOMIKA - Genética para a vida.</title>
+    {% load staticfiles %}
+    <link href="{% static "painel/css/style.css" %}" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+
+<div id="wrapper">
+
+<div id="header"></div>
+
+{% block nav %}
+
+    <nav id="menu">
+        <ul>
+            <li><a href="{% url "painel.views.select" %}">Início</a></li>
+            <li><a href="/painel/history/">Histórico</a></li>
+            <li><a href="/painel/references/">Alterar Referências</a></li>
+            <li><a href="/painel/logout/">Logout</a></li>
+        </ul>
+    </nav>
+
+{% endblock %}
+
+<div id="content">
+
+    {% block content %}
+
+
+
+    {% endblock %}
+
+</div>
+
+</div>
+
+</body>
+</html>

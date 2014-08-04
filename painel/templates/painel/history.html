@@ -1,0 +1,53 @@
+{% extends 'painel/base.html' %}
+
+{% block content %}
+
+    <table>
+
+        <tr>
+
+            <td>DATA</td>
+            <td>PAINÉIS</td>
+            <td>GENES</td>
+            <td>DOWNLOAD</td>
+            <td>DELETAR</td>
+
+        </tr>
+
+
+        {% for history in history_list %}
+
+            <tr>
+                <td>{{  history.date|date:'d/m/Y' }}</td>
+                <td>{{ history.panels }}</td>
+                <td>{{ history.genes }}</td>
+                <td><a href="/painel/download/{{ history.filename }}">BED FILE</a></td>
+                <td><a href="/painel/delete/{{ history.filename }}">DELETAR</a></td>
+            </tr>
+
+        {% endfor %}
+
+
+    </table>
+
+    <div class="pagination">
+
+            <span class="step-links">
+                {% if history_list.has_previous %}
+                    <a href="?page={{ history_list.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Página {{ history_list.number }} de {{ history_list.paginator.num_pages }}.
+                </span>
+
+                {% if history_list.has_next %}
+                    <a href="?page={{ history_list.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+
+    </div>
+
+
+{% endblock %}
+
